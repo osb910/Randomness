@@ -70,14 +70,14 @@ export const rndPrime = (to, from = 2) => {
 
 // Return a random character from a string
 export const rndChar = str => {
-  const idx = rndNum(str.length, 0);
-  console.log(idx);
+  const idx = rndNum(str.length - 1, 0);
   return str[idx];
 };
 
-// Return a random item from an array, with optional starting index, till ending index (non-inclusive)
-export const rndArrEl = (arr, {from = 0, till = arr.length} = {}) => {
-  const idx = rndNum(till, from);
+// Return a random item from an array, with optional starting index,
+// to ending index
+export const rndArrEl = (arr, {from = 0, to = arr.length - 1} = {}) => {
+  const idx = rndNum(to, from);
   return arr[idx];
 };
 
