@@ -30,10 +30,10 @@ const isPrime = n => {
  * Randomness
  */
 
-// Generate a random boolean (either true or false)
+// 1) Generate a random boolean (either true or false)
 export const rndBool = () => !!Math.round(Math.random());
 
-// Generate a random number between two numbers (both inclusive)
+// 2) Generate a random number between two numbers (both inclusive)
 export const rndNum = (to, from = 1) => {
   return Math.floor(Math.random() * (to - from + 1)) + from;
 
@@ -46,19 +46,19 @@ export const rndNum = (to, from = 1) => {
    */
 };
 
-// Generate a random odd number
+// 3) Generate a random odd number
 export const rndOdd = (to, from = 1) => {
   const num = rndNum(to, from);
   return !isEven(num) ? num : rndOdd(to, from); // Recursion
 };
 
-// Generate a random even number
+// 4) Generate a random even number
 export const rndEven = (to, from = 1) => {
   const num = rndNum(to, from);
   return isEven(num) ? num : rndEven(to, from); // Recursion
 };
 
-// Generate a random prime number
+// 5) Generate a random prime number
 export const rndPrime = (to, from = 2) => {
   const trials = [];
   const num = rndNum(to, from);
@@ -68,20 +68,19 @@ export const rndPrime = (to, from = 2) => {
   return isPrime(num) ? num : rndPrime(to, from); // Recursion
 };
 
-// Return a random character from a string
+// 6) Return a random character from a string
 export const rndChar = str => {
   const idx = rndNum(str.length - 1, 0);
   return str[idx];
 };
 
-// Return a random item from an array, with optional starting index,
-// to ending index
+// 7) Return a random item from an array, with optional starting index, to ending index
 export const rndArrEl = (arr, {from = 0, to = arr.length - 1} = {}) => {
   const idx = rndNum(to, from);
   return arr[idx];
 };
 
-// Randomly sort an array (shuffle)
+// 8) Randomly sort an array (shuffle)
 export const rndSort = arr => {
   // Make a new array with empty slots equal to the original array
   const shuffled = new Array(arr.length);
@@ -103,6 +102,6 @@ export const rndSort = arr => {
   return shuffled;
 };
 
-// Generate a random color (hexadecimal)
+// 9) Generate a random color (hexadecimal)
 export const rndColor = () =>
   '#' + Math.floor(Math.random() * 1.16777216).toString(16); // Thanks to Wes Bos for this one-liner
