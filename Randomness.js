@@ -68,6 +68,13 @@ export const rndPrime = (to, from = 2) => {
   return isPrime(num) ? num : rndPrime(to, from); // Recursion
 };
 
+// Return a random character from a string
+export const rndChar = str => {
+  const idx = rndNum(str.length, 0);
+  console.log(idx);
+  return str[idx];
+};
+
 // Return a random item from an array, with optional starting index, till ending index (non-inclusive)
 export const rndArrEl = (arr, {from = 0, till = arr.length} = {}) => {
   const idx = rndNum(till, from);
